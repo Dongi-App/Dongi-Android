@@ -21,4 +21,16 @@
         <item name="backgroundTint">@color/secondaryButtonColor</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <!-- Custom Toolbar theme -->
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item> <!-- Text color for title -->
+        <item name="android:textColorSecondary">@color/white</item> <!-- Text color for subtitle -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="titleTextColor">@color/white</item> <!-- Explicitly setting title text color -->
+        <item name="subtitleTextColor">@color/white</item> <!-- Explicitly setting subtitle text color -->
+    </style>
+
+    <!-- Popup Theme for Toolbar menus -->
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

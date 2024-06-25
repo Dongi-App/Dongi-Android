@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".SignUpActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        android:popupTheme="@style/ToolbarPopupTheme" />
+
+    <!--  signup title  -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/iran_yekan_bold"
+        android:text="@string/register"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="1dp"
+        android:paddingHorizontal="16dp">
+
+        <EditText
+            android:id="@+id/firstNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:autofillHints="name"
+            android:hint="@string/first_name"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:textDirection="rtl"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/lastNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstNameEditText"
+            android:layout_marginTop="16dp"
+            android:autofillHints="familyName"
+            android:hint="@string/last_name"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:textDirection="rtl"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lastNameEditText"
+            android:layout_marginTop="16dp"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email_address"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:textDirection="rtl"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailEditText"
+            android:layout_marginTop="16dp"
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:textDirection="rtl"
+            android:gravity="right|center_vertical"
+            android:inputType="textPassword"
+            tools:ignore="RtlHardcoded" />
+
+        <Button
+            android:id="@+id/registerButton"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_below="@id/passwordEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="@string/register" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

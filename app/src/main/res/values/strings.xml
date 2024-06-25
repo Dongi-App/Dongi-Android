@@ -2,6 +2,10 @@
     <string name="app_name">Dongi</string>
     <string name="logo_description">Dongi Logo</string>
     <string name="dongi">دنگی</string>
-    <string name="register">ثبت نام</string>
+    <string name="register">ثبت‌نام</string>
     <string name="login">ورود</string>
+    <string name="first_name">نام</string>
+    <string name="last_name">نام‌خانوادگی</string>
+    <string name="email_address">ایمیل</string>
+    <string name="password">گذرواژه</string>
 </resources>
