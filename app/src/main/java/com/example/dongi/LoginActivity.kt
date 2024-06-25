@@ -2,6 +2,7 @@ package com.example.dongi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -10,6 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import com.example.dongi.api.LoginRequest
+import com.example.dongi.api.RetrofitClient
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
@@ -56,12 +63,48 @@ class LoginActivity : AppCompatActivity() {
         // Set up the login button click listener
         loginButton.setOnClickListener {
             if (validateInputs()) {
-                // Proceed with login logic
-                Toast.makeText(this, "ورود با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
+                loginUser()
             }
         }
     }
 
+    private fun loginUser() {
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
+
+        val loginRequest = LoginRequest(email, password)
+
+        RetrofitClient.instance.login(loginRequest).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()?.string()
+                    Log.d("API Response", "Response Body: $responseBody")
+
+                    if (responseBody != null) {
+                        // Process the raw response if needed
+                        Toast.makeText(this@LoginActivity, "ورود با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
+                        // Navigate to another activity if needed
+                        val intent = Intent(this@LoginActivity, GroupsActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // Login failed
+                        Toast.makeText(this@LoginActivity, "ورود ناموفق بود", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Log the raw response body for debugging
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("API Error", "Error Body: $errorBody")
+                    Toast.makeText(this@LoginActivity, "ورود ناموفق بود", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("API Error", "Error: ${t.message}")
+                Toast.makeText(this@LoginActivity, "ورود ناموفق بود: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
     private fun handleBackPress() {
         val intent = Intent(this, WelcomeActivity::class.java)
         startActivity(intent)

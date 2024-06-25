@@ -8,4 +8,5 @@
     <string name="last_name">نام‌خانوادگی</string>
     <string name="email_address">ایمیل</string>
     <string name="password">گذرواژه</string>
+    <string name="groupslistactivity">لیست گروه‌ها</string>
 </resources>

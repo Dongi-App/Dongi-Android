@@ -27,6 +27,7 @@
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".GroupsActivity" />
     </application>
 
 </manifest>
