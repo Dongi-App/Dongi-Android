@@ -12,8 +12,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.example.dongi.api.LoginRequest
+import com.example.dongi.api.LoginResponse
 import com.example.dongi.api.RetrofitClient
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -74,14 +74,14 @@ class LoginActivity : AppCompatActivity() {
 
         val loginRequest = LoginRequest(email, password)
 
-        RetrofitClient.instance.login(loginRequest).enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+        RetrofitClient.instance.login(loginRequest).enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
-                    val responseBody = response.body()?.string()
-                    Log.d("API Response", "Response Body: $responseBody")
+                    val loginResponse = response.body()
+                    Log.d("API Response", "Response Body: ${loginResponse}")
 
-                    if (responseBody != null) {
-                        // Process the raw response if needed
+                    if (loginResponse?.token != null) {
+                        // Login successful
                         Toast.makeText(this@LoginActivity, "ورود با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
                         // Navigate to another activity if needed
                         val intent = Intent(this@LoginActivity, GroupsActivity::class.java)
@@ -99,12 +99,13 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.e("API Error", "Error: ${t.message}")
                 Toast.makeText(this@LoginActivity, "ورود ناموفق بود: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
     private fun handleBackPress() {
         val intent = Intent(this, WelcomeActivity::class.java)
         startActivity(intent)
