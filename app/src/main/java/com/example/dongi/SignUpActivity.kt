@@ -2,6 +2,7 @@ package com.example.dongi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -10,6 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
+import com.example.dongi.api.RetrofitClient
+import com.example.dongi.api.SignupRequest
+import com.example.dongi.api.SignupResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
@@ -60,10 +67,49 @@ class SignUpActivity : AppCompatActivity() {
         // Set up the register button click listener
         registerButton.setOnClickListener {
             if (validateInputs()) {
-                // Proceed with signup logic
-                Toast.makeText(this, "ثبت‌نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
+                signUpUser()
             }
         }
+    }
+
+    private fun signUpUser() {
+        val firstName = firstNameEditText.text.toString().trim()
+        val lastName = lastNameEditText.text.toString().trim()
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
+
+        val signupRequest = SignupRequest(firstName, lastName, email, password)
+
+        RetrofitClient.instance.signup(signupRequest).enqueue(object : Callback<SignupResponse> {
+            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
+                if (response.isSuccessful) {
+                    val signupResponse = response.body()
+                    Log.d("API Response", "Response Body: ${signupResponse}")
+
+                    if (signupResponse?.token != null) {
+                        // Sign-up successful
+                        Toast.makeText(this@SignUpActivity, "ثبت نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
+                        // Navigate to another activity if needed
+                        val intent = Intent(this@SignUpActivity, GroupsActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // Sign-up failed
+                        Toast.makeText(this@SignUpActivity, "ثبت نام ناموفق بود", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Log the raw response body for debugging
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("API Error", "Error Body: $errorBody")
+                    Toast.makeText(this@SignUpActivity, "ثبت نام ناموفق بود", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
+                Log.e("API Error", "Error: ${t.message}")
+                Toast.makeText(this@SignUpActivity, "ثبت نام ناموفق بود: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun handleBackPress() {
