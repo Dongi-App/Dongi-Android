@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Dongi</string>
     <string name="logo_description">Dongi Logo</string>
+    <string name="dongi">دنگی</string>
+    <string name="register">ثبت نام</string>
+    <string name="login">ورود</string>
 </resources>
