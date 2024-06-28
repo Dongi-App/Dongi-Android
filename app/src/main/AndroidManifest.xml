@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Dongi"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".GroupsActivity" />
+        <activity android:name=".ui.splash.WelcomeActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.signup.SignUpActivity" />
+        <activity android:name=".ui.group.GroupsActivity" />
+        <activity android:name=".ui.group.GroupDetailsActivity" />
     </application>
 
 </manifest>

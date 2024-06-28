@@ -1,10 +1,13 @@
-package com.example.dongi
+package com.example.dongi.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.dongi.R
+import com.example.dongi.ui.login.LoginActivity
+import com.example.dongi.ui.signup.SignUpActivity
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

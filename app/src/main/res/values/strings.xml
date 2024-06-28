@@ -9,4 +9,5 @@
     <string name="email_address">ایمیل</string>
     <string name="password">گذرواژه</string>
     <string name="groupslistactivity">لیست گروه‌ها</string>
+    <string name="group_details">جزئیات گروه</string>
 </resources>
