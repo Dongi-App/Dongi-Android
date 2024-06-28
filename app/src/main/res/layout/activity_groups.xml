@@ -4,15 +4,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.group.GroupsActivity">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/groups"
-        android:textSize="24sp"
-        android:fontFamily="@font/iran_yekan_bold"
-        android:textColor="@android:color/black"
-        android:gravity="center_horizontal"
-        android:paddingVertical="24dp" />
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/groupsTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/groups"
+            android:textSize="24sp"
+            android:fontFamily="@font/iran_yekan_bold"
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/addGroupImageView"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/group_icon"
+            android:src="@drawable/group_add"
+            android:layout_alignStart="@+id/groupsTitleTextView"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"/>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/groupsRecyclerView"

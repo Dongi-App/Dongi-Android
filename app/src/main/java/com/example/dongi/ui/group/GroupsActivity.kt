@@ -1,7 +1,9 @@
 package com.example.dongi.ui.group
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +26,12 @@ class GroupsActivity : AppCompatActivity() {
 
         groupsRecyclerView = findViewById(R.id.groupsRecyclerView)
         groupsRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        val addGroupImageView: ImageView = findViewById(R.id.addGroupImageView)
+        addGroupImageView.setOnClickListener {
+            val intent = Intent(this, AddGroupActivity::class.java)
+            startActivity(intent)
+        }
 
         fetchGroups()
     }

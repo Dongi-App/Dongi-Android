@@ -43,6 +43,14 @@ data class GroupsResponse(
     val groups: List<Group>
 )
 
+data class AddGroupRequest(
+    val name: String
+)
+
+data class AddGroupResponse(
+    val group: Group
+)
+
 
 interface ApiService {
     @POST("api/user/login")
@@ -56,4 +64,7 @@ interface ApiService {
 
     @GET("api/group/data/{id}")
     fun getGroupDetails(@Path("id") id: String): Call<Group>
+
+    @POST("api/group/add")
+    fun addGroup(@Body request: AddGroupRequest): Call<AddGroupResponse>
 }
