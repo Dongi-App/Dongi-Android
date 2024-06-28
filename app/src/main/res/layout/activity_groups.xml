@@ -4,10 +4,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.group.GroupsActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/groups"
+        android:textSize="24sp"
+        android:fontFamily="@font/iran_yekan_bold"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:paddingVertical="24dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/groupsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp" />
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="64dp" />
 
 </RelativeLayout>
