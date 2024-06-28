@@ -45,7 +45,7 @@ class GroupsActivity : AppCompatActivity() {
                         groupsAdapter = GroupsAdapter(this@GroupsActivity, groupsResponse.groups)
                         groupsRecyclerView.adapter = groupsAdapter
                     } else {
-                        Toast.makeText(this@GroupsActivity, "Failed to load groups", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@GroupsActivity, "دریافت گروه‌ها با مشکل مواجه شد", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Toast.makeText(this@GroupsActivity, "Failed to load groups", Toast.LENGTH_SHORT).show()

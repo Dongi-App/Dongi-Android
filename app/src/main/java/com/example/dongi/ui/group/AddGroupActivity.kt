@@ -73,14 +73,14 @@ class AddGroupActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val addGroupResponse = response.body()
                     if (addGroupResponse != null) {
-                        Toast.makeText(this@AddGroupActivity, "Group added successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@AddGroupActivity, "گروه با موفقیت اضافه شد", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@AddGroupActivity, GroupDetailsActivity::class.java).apply {
                             putExtra("GROUP_ID", addGroupResponse.group.id)
                         }
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(this@AddGroupActivity, "Failed to add group", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@AddGroupActivity, "افزودن گروه ناموفق بود", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Toast.makeText(this@AddGroupActivity, "Failed to add group", Toast.LENGTH_SHORT).show()
