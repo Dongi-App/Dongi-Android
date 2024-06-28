@@ -8,20 +8,20 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
-        android:popupTheme="@style/ToolbarPopupTheme" />
+        android:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarTheme" />
 
     <TextView
         android:id="@+id/profileTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/profile"
         android:layout_below="@id/toolbar"
-        android:textSize="24sp"
         android:fontFamily="@font/iran_yekan_bold"
-        android:textColor="@android:color/black"
         android:gravity="center"
-        android:paddingVertical="8dp" />
+        android:paddingVertical="8dp"
+        android:text="@string/profile"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <RelativeLayout
         android:id="@+id/profileLayout"
@@ -35,33 +35,33 @@
             android:id="@+id/profileImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/profile_image"
-            android:src="@drawable/profile"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="8dp"
-            android:layout_centerVertical="true" />
+            android:contentDescription="@string/profile_image"
+            android:src="@drawable/profile" />
 
         <TextView
             android:id="@+id/profileNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/profileImageView"
-            android:text="محمدامین لطفی"
-            android:textSize="16sp"
             android:fontFamily="@font/iran_yekan_regular"
             android:paddingTop="4dp"
-            android:textColor="@android:color/black" />
+            android:text="محمدامین لطفی"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <!--    email address    -->
         <TextView
             android:id="@+id/profileEmailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/profileImageView"
             android:layout_alignBottom="@+id/profileImageView"
+            android:layout_toEndOf="@+id/profileImageView"
             android:gravity="right"
-            android:textSize="12sp"
             android:paddingBottom="4dp"
             android:text="a.lotfi1201@gmail.com"
+            android:textSize="12sp"
             tools:ignore="RtlHardcoded" />
 
     </RelativeLayout>
@@ -84,9 +84,9 @@
                 android:id="@+id/editProfileImageView"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/group_icon"
-                android:src="@drawable/edit"
-                android:layout_marginEnd="8dp"/>
+                android:src="@drawable/edit" />
 
             <!--    edit profile aligned vertically to the center    -->
             <TextView
@@ -94,18 +94,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/editProfileImageView"
-                android:text="@string/edit_profile"
-                android:textSize="16sp"
                 android:fontFamily="@font/iran_yekan_regular"
-                android:textColor="@android:color/black" />
+                android:text="@string/edit_profile"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/secondaryButtonColor"
-            android:layout_below="@+id/editProfile"/>
+            android:layout_below="@+id/editProfile"
+            android:background="@color/secondaryButtonColor" />
 
         <RelativeLayout
             android:id="@+id/logout"
@@ -118,28 +118,27 @@
                 android:id="@+id/logoutImageView"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
                 android:contentDescription="@string/group_icon"
-                android:src="@drawable/logout"
-                android:layout_marginEnd="8dp"/>
+                android:src="@drawable/logout" />
 
-            <!--    edit profile aligned vertically to the center    -->
             <TextView
                 android:id="@+id/logoutTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/logoutImageView"
-                android:text="@string/logout"
-                android:textSize="16sp"
                 android:fontFamily="@font/iran_yekan_regular"
-                android:textColor="@android:color/black" />
+                android:text="@string/logout"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/secondaryButtonColor"
-            android:layout_below="@+id/logout"/>
+            android:layout_below="@+id/logout"
+            android:background="@color/secondaryButtonColor" />
 
     </RelativeLayout>
 

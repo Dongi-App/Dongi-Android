@@ -10,8 +10,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
-        android:popupTheme="@style/ToolbarPopupTheme" />
+        android:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarTheme" />
 
     <!--  signup title  -->
     <TextView
@@ -38,10 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:autofillHints="emailAddress"
-            android:hint="@string/email_address"
             android:fontFamily="@font/iran_yekan_regular"
-            android:textDirection="rtl"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textDirection="rtl" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -50,11 +50,11 @@
             android:layout_below="@id/emailEditText"
             android:layout_marginTop="16dp"
             android:autofillHints="password"
-            android:hint="@string/password"
             android:fontFamily="@font/iran_yekan_regular"
-            android:textDirection="rtl"
             android:gravity="right|center_vertical"
+            android:hint="@string/password"
             android:inputType="textPassword"
+            android:textDirection="rtl"
             tools:ignore="RtlHardcoded" />
 
         <Button

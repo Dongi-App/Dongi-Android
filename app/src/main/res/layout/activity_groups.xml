@@ -13,22 +13,22 @@
             android:id="@+id/groupsTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/groups"
-            android:textSize="24sp"
-            android:fontFamily="@font/iran_yekan_bold"
-            android:textColor="@android:color/black"
             android:layout_centerVertical="true"
-            android:gravity="center"/>
+            android:fontFamily="@font/iran_yekan_bold"
+            android:gravity="center"
+            android:text="@string/groups"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/addGroupImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:contentDescription="@string/group_icon"
-            android:src="@drawable/group_add"
             android:layout_alignStart="@+id/groupsTitleTextView"
             android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/group_icon"
+            android:src="@drawable/group_add" />
 
     </RelativeLayout>
 
