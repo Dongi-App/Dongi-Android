@@ -14,4 +14,8 @@
     <string name="groups">گروه‌ها</string>
     <string name="add_group">افزودن گروه</string>
     <string name="enter_group_name">نام گروه را وارد کنید</string>
+    <string name="profile">حساب کاربری</string>
+    <string name="profile_image">profile image</string>
+    <string name="edit_profile">ویرایش اطلاعات حساب کاربری</string>
+    <string name="logout">خروج</string>
 </resources>
