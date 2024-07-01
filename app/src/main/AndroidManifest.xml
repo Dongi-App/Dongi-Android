@@ -30,6 +30,8 @@
         <activity android:name=".ui.group.GroupsActivity" />
         <activity android:name=".ui.group.AddGroupActivity" />
         <activity android:name=".ui.group.GroupDetailsActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.profile.EditProfileActivity" />
     </application>
 
 </manifest>
