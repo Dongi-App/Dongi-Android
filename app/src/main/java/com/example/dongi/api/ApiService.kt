@@ -1,5 +1,6 @@
 package com.example.dongi.api
 
+import android.icu.text.DateFormat
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -41,7 +42,13 @@ data class SignupResponse(
 
 data class Group(
     val id: String,
-    val name: String
+    val name: String,
+    val members: Array<User>
+)
+
+data class ShareMembers(
+    val user: String,
+    val share: Number
 )
 
 data class GroupsResponse(
@@ -50,6 +57,33 @@ data class GroupsResponse(
 
 data class AddGroupRequest(
     val name: String
+)
+
+data class Share (
+    val user: String,
+    val share: String
+)
+
+data class AddExpenseRequest(
+    val group: String,
+    val payer: String,
+    val description: String,
+    val amount: String,
+    val date: String,
+    val shares: Array<Share>
+)
+
+data class updateExpenseRequest(
+    val expense_id: String,
+    val payer: String,
+    val description: String,
+    val amount: String,
+    val date: String,
+    val shares: Array<Share>
+)
+
+data class RemoveExpenseRequest(
+    val expense_id: String
 )
 
 data class AddGroupResponse(
@@ -81,4 +115,13 @@ interface ApiService {
 
     @POST("api/group/add")
     fun addGroup(@Body request: AddGroupRequest): Call<AddGroupResponse>
+
+    @POST("/api/expense/add")
+    fun addExpense(@Body request: AddExpenseRequest): Call<Void>
+
+    @POST("/api/expense/remove")
+    fun removeExpense(@Body request: RemoveExpenseRequest): Call<Void>
+
+    @POST("/api/expense/update")
+    fun updateExpense(@Body request: updateExpenseRequest): Call<Void>
 }
