@@ -1,6 +1,5 @@
 package com.example.dongi.ui.profile
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.RelativeLayout
@@ -56,8 +55,6 @@ class ProfileActivity : AppCompatActivity() {
         editProfileLayout = findViewById(R.id.editProfile)
         logoutLayout = findViewById(R.id.logout)
 
-        fetchUserData()
-
         editProfileLayout.setOnClickListener {
             val intent = Intent(this, EditProfileActivity::class.java)
             startActivity(intent)
@@ -66,6 +63,11 @@ class ProfileActivity : AppCompatActivity() {
         logoutLayout.setOnClickListener {
             logoutUser()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchUserData()
     }
 
     private fun fetchUserData() {

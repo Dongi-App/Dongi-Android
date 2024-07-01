@@ -19,4 +19,7 @@
     <string name="edit_profile">ویرایش اطلاعات حساب کاربری</string>
     <string name="logout">خروج</string>
     <string name="dashboard">داشبورد</string>
+    <string name="enter_new_first_name">"نام جدید را وارد کنید "</string>
+    <string name="enter_new_last_name">نام‌خانوادگی حدید را وارد کنید</string>
+    <string name="register_changes">ثبت تغییرات</string>
 </resources>

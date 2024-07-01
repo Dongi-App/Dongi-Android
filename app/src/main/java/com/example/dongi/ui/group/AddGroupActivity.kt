@@ -62,9 +62,6 @@ class AddGroupActivity : AppCompatActivity() {
     }
 
     private fun addGroup(groupName: String) {
-        val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
-        val token = sharedPreferences.getString("AUTH_TOKEN", null) ?: return
-
         val request = AddGroupRequest(name = groupName)
         val call = RetrofitClient.getInstance(this).addGroup(request)
 

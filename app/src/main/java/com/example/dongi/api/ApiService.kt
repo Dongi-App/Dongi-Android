@@ -70,6 +70,9 @@ interface ApiService {
     @GET("api/user/data")
     fun getUserData(): Call<UserDataResponse>
 
+    @POST("api/user/update")
+    fun updateUserData(@Body request: Map<String, String>): Call<Void>
+
     @GET("api/group/list")
     fun getGroups(): Call<GroupsResponse>
 
