@@ -17,7 +17,7 @@ import com.example.dongi.ui.splash.WelcomeActivity
 import com.example.dongi.api.RetrofitClient
 import com.example.dongi.api.SignupRequest
 import com.example.dongi.api.SignupResponse
-import com.example.dongi.ui.group.GroupsActivity
+import com.example.dongi.ui.dashboard.DashboardActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -101,7 +101,7 @@ class SignUpActivity : AppCompatActivity() {
                         // Sign-up successful
                         Toast.makeText(this@SignUpActivity, "ثبت نام با موفقیت انجام شد", Toast.LENGTH_SHORT).show()
                         // Navigate to another activity if needed
-                        val intent = Intent(this@SignUpActivity, GroupsActivity::class.java)
+                        val intent = Intent(this@SignUpActivity, DashboardActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

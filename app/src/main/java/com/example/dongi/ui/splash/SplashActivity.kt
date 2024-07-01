@@ -8,7 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dongi.R
-import com.example.dongi.ui.group.GroupsActivity
+import com.example.dongi.ui.dashboard.DashboardActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         if (token != null) {
             // Token exists, navigate to GroupsActivity
-            val intent = Intent(this, GroupsActivity::class.java)
+            val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
         } else {
             // No token, navigate to WelcomeActivity
