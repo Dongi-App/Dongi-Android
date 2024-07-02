@@ -57,7 +57,6 @@ class GroupExpenseActivity : AppCompatActivity() {
         }
 
         groupId = intent.getStringExtra("GROUP_ID") ?: return
-        Log.d("GroupDetailsActivity", "Group ID: $groupId")
 
         datePickerTV = findViewById(R.id.date_picker)
         expenseReasonET = findViewById(R.id.expense_reason)

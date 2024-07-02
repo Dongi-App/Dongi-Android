@@ -14,9 +14,12 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dongi.R
+import com.example.dongi.api.AddExpenseRequest
 import com.example.dongi.api.Group
 import com.example.dongi.api.RetrofitClient
 import com.example.dongi.api.UserDataResponse
+import com.example.dongi.ui.invite.SendInvitationActivity
+import com.example.dongi.ui.signup.SignUpActivity
 import com.example.dongi.ui.splash.WelcomeActivity
 import com.example.dongi.util.SharedPreferencesHelper
 import retrofit2.Call
@@ -28,6 +31,10 @@ class GroupDetailsActivity : AppCompatActivity() {
     private lateinit var membersRecyclerView: RecyclerView
     private lateinit var groupMembersAdapter: GroupMembersAdapter
     private lateinit var profileTitleTV: TextView
+    private lateinit var addMemberLayout: RelativeLayout
+    private lateinit var addExpLayout: RelativeLayout
+    private lateinit var expListLayout: RelativeLayout
+    private lateinit var groupId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +43,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         // Set up the toolbar
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        groupId = intent.getStringExtra("GROUP_ID") ?: return
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = ""
 
@@ -55,6 +63,26 @@ class GroupDetailsActivity : AppCompatActivity() {
         }
 
         profileTitleTV = findViewById(R.id.profileTitleTextView)
+        expListLayout = findViewById(R.id.exp_list)
+        addMemberLayout = findViewById(R.id.add_member)
+        addExpLayout = findViewById(R.id.add_exp)
+
+        expListLayout.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        addMemberLayout.setOnClickListener {
+            val intent = Intent(this,SendInvitationActivity::class.java).apply {
+                putExtra("GROUP_ID", groupId)
+            }
+            startActivity(intent)
+        }
+        addExpLayout.setOnClickListener {
+            val intent = Intent(this, GroupExpenseActivity::class.java).apply {
+                putExtra("GROUP_ID", groupId)
+            }
+            startActivity(intent)
+        }
 
         membersRecyclerView = findViewById(R.id.groupsMembersRecyclerView)
         membersRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -72,7 +100,6 @@ class GroupDetailsActivity : AppCompatActivity() {
     }
 
     private fun fetchMembersData() {
-        val groupId = intent.getStringExtra("GROUP_ID") ?: return
 
         RetrofitClient.getInstance(this).getGroupDetails(groupId).enqueue(object : Callback<Group> {
             override fun onResponse(call: Call<Group>, response: Response<Group>) {

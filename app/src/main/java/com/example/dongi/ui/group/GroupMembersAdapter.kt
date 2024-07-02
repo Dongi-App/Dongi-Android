@@ -39,8 +39,8 @@ class GroupMembersAdapter(private val context: Context, private val users: List<
     }
 
     override fun onBindViewHolder(holder: MembersViewHolder, position: Int) {
-        val group = users[position]
-        holder.groupNameTextView.text = group.first_name
+        val user = users[position]
+        holder.groupNameTextView.text = "${user.first_name} ${user.last_name}"
     }
 
     override fun getItemCount(): Int {
