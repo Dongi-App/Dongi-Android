@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.invite.SendInvitationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarTheme" />
+
+    <TextView
+        android:id="@+id/inviteFriendsTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:fontFamily="@font/iran_yekan_bold"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="@string/invite_friends"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/memberEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inviteFriendsTitleTextView"
+        android:layout_margin="16dp"
+        android:autofillHints="Member Email"
+        android:hint="@string/enter_member_email"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/sendInvitationButton"
+        style="@style/PrimaryButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/memberEmailEditText"
+        android:layout_margin="16dp"
+        android:padding="12dp"
+        android:text="@string/send_invitation"
+        android:textSize="16sp" />
+
+</RelativeLayout>

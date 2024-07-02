@@ -23,11 +23,21 @@
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
+    <ImageView
+        android:id="@+id/editProfileImageView"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_below="@id/editProfileTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/profile_image_description"
+        android:src="@drawable/img_profile" />
+
     <EditText
         android:id="@+id/firstNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editProfileTitleTextView"
+        android:layout_below="@+id/editProfileImageView"
         android:layout_margin="16dp"
         android:autofillHints="Group Name"
         android:hint="@string/enter_new_first_name"

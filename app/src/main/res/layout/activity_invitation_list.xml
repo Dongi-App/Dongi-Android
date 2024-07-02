@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.invite.InvitationListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarTheme" />
+
+    <TextView
+        android:id="@+id/invitationsTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:fontFamily="@font/iran_yekan_bold"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="@string/invitations"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/invitationsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/invitationsTitleTextView"
+        android:layout_margin="16dp" />
+
+</RelativeLayout>

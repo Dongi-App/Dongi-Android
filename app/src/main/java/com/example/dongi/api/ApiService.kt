@@ -7,6 +7,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 data class LoginRequest(
     val email: String,
@@ -90,6 +91,22 @@ data class AddGroupResponse(
     val group: Group
 )
 
+data class Invitation(
+    val from: String,
+    val to: String,
+    val group: Group,
+    val id: String
+)
+
+data class InvitationListResponse(
+    val invitations: List<Invitation>
+)
+
+data class InvitationResponseRequest(
+    val invitation_id: String,
+    val admit: Boolean
+)
+
 
 interface ApiService {
     @POST("api/user/login")
@@ -124,4 +141,13 @@ interface ApiService {
 
     @POST("/api/expense/update")
     fun updateExpense(@Body request: updateExpenseRequest): Call<Void>
+
+    @POST("api/invitation/send")
+    fun sendInvitation(@Body request: Map<String, String>): Call<Void>
+
+    @GET("api/invitation/list")
+    fun getInvitations(@Query("incoming") incoming: Boolean): Call<InvitationListResponse>
+
+    @POST("api/invitation/respond")
+    fun respondToInvitation(@Body request: InvitationResponseRequest): Call<Void>
 }

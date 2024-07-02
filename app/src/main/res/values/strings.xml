@@ -30,4 +30,14 @@
     <string name="enter_new_first_name">"نام جدید را وارد کنید "</string>
     <string name="enter_new_last_name">نام‌خانوادگی حدید را وارد کنید</string>
     <string name="register_changes">ثبت تغییرات</string>
+    <string name="send_invitation">ارسال دعوت</string>
+    <string name="enter_member_email">ایمیل دوست خود را وارد کنید</string>
+    <string name="invite_friends">دعوت دوستان</string>
+    <string name="invitations">لیست دعوت‌ها</string>
+    <string name="decline">رد</string>
+    <string name="accept">تایید</string>
+    <string name="login_image_description">login_image_description</string>
+    <string name="signup_image_description">signup_image_description</string>
+    <string name="dashboard_image_description">dashboard_image_description</string>
+    <string name="profile_image_description">profile_image_description</string>
 </resources>

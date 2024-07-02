@@ -13,7 +13,6 @@
         android:popupTheme="@style/ToolbarPopupTheme"
         android:theme="@style/ToolbarTheme" />
 
-    <!--  signup title  -->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -24,10 +23,20 @@
         android:text="@string/register"
         android:textSize="24sp" />
 
+    <ImageView
+        android:id="@+id/signupImageView"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_below="@id/titleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/signup_image_description"
+        android:src="@drawable/img_signup" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titleTextView"
+        android:layout_below="@id/signupImageView"
         android:layout_marginTop="1dp"
         android:paddingHorizontal="16dp">
 
