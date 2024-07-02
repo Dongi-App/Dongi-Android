@@ -5,5 +5,6 @@
     <color name="core_surface">#FCFCFC</color>
     <color name="primaryButtonColor">#FF754EC6</color>
     <color name="secondaryButtonColor">#FF2D3135</color>
-    <color name="errorColor">#FFE61F10</color>
+    <color name="errorColor">#FFC34145</color>
+    <color name="green">#FF116E53</color>
 </resources>

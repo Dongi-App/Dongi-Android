@@ -25,4 +25,7 @@
     <string name="send_invitation">ارسال دعوت</string>
     <string name="enter_member_email">ایمیل دوست خود را وارد کنید</string>
     <string name="invite_friends">دعوت دوستان</string>
+    <string name="invitations">لیست دعوت‌ها</string>
+    <string name="decline">رد</string>
+    <string name="accept">تایید</string>
 </resources>

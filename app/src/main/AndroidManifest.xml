@@ -33,6 +33,8 @@
         <activity android:name=".ui.group.GroupDetailsActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.profile.EditProfileActivity" />
+        <activity android:name=".ui.invite.InvitationListActivity" />
+        <activity android:name=".ui.invite.SendInvitationActivity" />
     </application>
 
 </manifest>

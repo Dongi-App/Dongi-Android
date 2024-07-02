@@ -36,4 +36,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
+    <Button
+        android:id="@+id/inviteButton"
+        style="@style/SecondaryButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/invitations"
+        android:layout_below="@id/groupsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
 </RelativeLayout>
