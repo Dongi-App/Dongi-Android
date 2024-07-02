@@ -1,5 +1,6 @@
 package com.example.dongi.api
 
+import android.icu.text.DateFormat
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -42,7 +43,8 @@ data class SignupResponse(
 
 data class Group(
     val id: String,
-    val name: String
+    val name: String,
+    val members: List<User>
 )
 
 data class GroupsResponse(
@@ -51,6 +53,58 @@ data class GroupsResponse(
 
 data class AddGroupRequest(
     val name: String
+)
+
+data class Share (
+    val user: String,
+    val share: String
+)
+
+data class ShareWithExpense (
+    val user: String,
+    val share: String,
+    val expense: String
+)
+
+data class AddExpenseRequest(
+    val group: String,
+    val payer: String,
+    val description: String,
+    val amount: String,
+    val date: String,
+    val shares: List<Share>
+)
+
+data class updateExpenseRequest(
+    val expense_id: String,
+    val payer: String,
+    val description: String,
+    val amount: String,
+    val date: String,
+    val shares: List<Share>
+)
+
+data class Expense(
+    val id: String,
+    val group: String,
+    val payer: String,
+    val description: String,
+    val amount: Float,
+    val total_shares: Int,
+    val date: String,
+    val shares: List<ShareWithExpense>
+)
+
+data class ExpenseData(
+    val expense: Expense
+)
+
+data class ExpenseList(
+    val expenses: List<Expense>
+)
+
+data class RemoveExpenseRequest(
+    val expense_id: String
 )
 
 data class AddGroupResponse(
@@ -93,11 +147,26 @@ interface ApiService {
     @GET("api/group/list")
     fun getGroups(): Call<GroupsResponse>
 
-    @GET("api/group/data/{id}")
-    fun getGroupDetails(@Path("id") id: String): Call<Group>
+    @GET("api/group/data")
+    fun getGroupDetails(@Query("id") id: String): Call<AddGroupResponse>
 
     @POST("api/group/add")
     fun addGroup(@Body request: AddGroupRequest): Call<AddGroupResponse>
+
+    @POST("/api/expense/add")
+    fun addExpense(@Body request: AddExpenseRequest): Call<Expense>
+
+    @GET("api/expense/data")
+    fun getExpenseDetails(@Query("expense_id") expense_id: String): Call<ExpenseData>
+
+    @GET("api/expense/list")
+    fun getExpenseList(@Query("group_id") group_id: String): Call<ExpenseList>
+
+    @POST("/api/expense/remove")
+    fun removeExpense(@Body request: RemoveExpenseRequest): Call<Void>
+
+    @POST("/api/expense/update")
+    fun updateExpense(@Body request: updateExpenseRequest): Call<Void>
 
     @POST("api/invitation/send")
     fun sendInvitation(@Body request: Map<String, String>): Call<Void>
