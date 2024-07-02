@@ -71,45 +71,6 @@ class ExpenseActivity : AppCompatActivity() {
         }
     }
 
-    private fun getGroupMembers(email: String) {
-
-        val reason = expenseReasonET.text.toString()
-        val amount = expenseAmountET.text.toString()
-        val date = datePickerTV.text.toString()
-
-        RetrofitClient.getInstance(this).getGroupDetails(groupId).enqueue(object : Callback<AddGroupResponse> {
-            override fun onResponse(call: Call<AddGroupResponse>, response: Response<AddGroupResponse>) {
-                if (response.isSuccessful) {
-                    val groupData = response.body()
-                    if (groupData != null) {
-                        val groupMembers = groupData.group.members
-                        if (groupMembers.isNotEmpty()) {
-                            val shareVal = 1
-                            val mutableList = members.toMutableList()
-                            for (gm in groupMembers) {
-                                val sahreObj = Share(gm.email, shareVal.toString())
-                                mutableList.add(sahreObj)
-                            }
-                            members = mutableList
-
-                            val addExp = AddExpenseRequest(group=groupId, payer=email ,description=reason, amount=amount, date=date, shares=members)
-                            // add expense
-                            addExpenseReq(addExp)
-                        }
-                    } else {
-                        Toast.makeText(this@ExpenseActivity, "دریافت اطلاعات گروه با مشکل مواجه شده است.", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(this@ExpenseActivity, "دریافت اطلاعات کروه با مشکل مواجه شده است.", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<AddGroupResponse>, t: Throwable) {
-                Toast.makeText(this@ExpenseActivity, "دریافت اطلاعات گروه با مشکل مواجه شده است.: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
     private fun addExpenseReq(addExp: AddExpenseRequest) {
         RetrofitClient.getInstance(this@ExpenseActivity).addExpense(addExp).enqueue(object : Callback<Expense> {
             override fun onResponse(call: Call<Expense>, response: Response<Expense>) {
@@ -129,12 +90,18 @@ class ExpenseActivity : AppCompatActivity() {
 
     private fun getPayer() {
 
+        val reason = expenseReasonET.text.toString()
+        val amount = expenseAmountET.text.toString()
+        val date = datePickerTV.text.toString()
+
         RetrofitClient.getInstance(this).getUserData().enqueue(object : Callback<UserDataResponse> {
             override fun onResponse(call: Call<UserDataResponse>, response: Response<UserDataResponse>) {
                 if (response.isSuccessful) {
                     val userData = response.body()?.user
                     if (userData != null) {
-                        getGroupMembers(userData.email)
+                        val addExp = AddExpenseRequest(group=groupId, payer=userData.email ,description=reason, amount=amount, date=date)
+                        // add expense
+                        addExpenseReq(addExp)
                     } else {
                         Toast.makeText(this@ExpenseActivity, "دریافت اطلاعات کاربر با مشکل مواجه شده است.", Toast.LENGTH_SHORT).show()
                     }
