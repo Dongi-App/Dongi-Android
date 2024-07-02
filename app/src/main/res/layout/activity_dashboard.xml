@@ -16,34 +16,54 @@
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
+    <ImageView
+        android:id="@+id/dashboardImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/dashboardTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/dashboard_image_description"
+        android:src="@drawable/img_manage_money" />
+
     <Button
         android:id="@+id/profileButton"
         style="@style/SecondaryButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dashboardTitleTextView"
-        android:text="@string/profile"
+        android:layout_below="@+id/dashboardImageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        android:text="@string/profile" />
 
     <Button
         android:id="@+id/groupsButton"
         style="@style/SecondaryButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/groups"
         android:layout_below="@id/profileButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:text="@string/groups" />
 
     <Button
         android:id="@+id/inviteButton"
         style="@style/SecondaryButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/invitations"
         android:layout_below="@id/groupsButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:text="@string/invitations" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        style="@style/ErrorButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inviteButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/logout" />
 
 </RelativeLayout>

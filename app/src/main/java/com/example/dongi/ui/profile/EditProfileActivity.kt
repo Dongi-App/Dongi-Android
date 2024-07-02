@@ -85,8 +85,8 @@ class EditProfileActivity : AppCompatActivity() {
         val firstName = firstNameEditText.text.toString().trim()
         val lastName = lastNameEditText.text.toString().trim()
 
-        if (firstName.isEmpty() && lastName.isEmpty()) {
-            Toast.makeText(this, "لطفاً حداقل یکی از فیلدها را پر کنید", Toast.LENGTH_SHORT).show()
+        if (firstName.isEmpty() || lastName.isEmpty()) {
+            Toast.makeText(this, "لطفا تمامی فیلدها را پر کنید", Toast.LENGTH_SHORT).show()
             return
         }
 

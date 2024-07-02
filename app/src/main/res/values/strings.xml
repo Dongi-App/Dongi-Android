@@ -28,4 +28,8 @@
     <string name="invitations">لیست دعوت‌ها</string>
     <string name="decline">رد</string>
     <string name="accept">تایید</string>
+    <string name="login_image_description">login_image_description</string>
+    <string name="signup_image_description">signup_image_description</string>
+    <string name="dashboard_image_description">dashboard_image_description</string>
+    <string name="profile_image_description">profile_image_description</string>
 </resources>
