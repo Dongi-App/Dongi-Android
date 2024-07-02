@@ -35,6 +35,9 @@
         <activity android:name=".ui.profile.EditProfileActivity" />
         <activity android:name=".ui.invite.InvitationListActivity" />
         <activity android:name=".ui.invite.SendInvitationActivity" />
+        <activity android:name=".ui.group.ExpenseList" />
+        <activity android:name=".ui.group.GroupExpenseEdit" />
+        <activity android:name=".ui.group.GroupExpenseActivity" />
     </application>
 
 </manifest>
