@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/blank"
-                android:fontFamily="@font/iran_yekan_bold"
+                android:fontFamily="@font/iran_yekan_regular"
                 android:textSize="30sp" />
     </RelativeLayout>
 

@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:fontFamily="@font/iran_yekan_bold"
+                android:fontFamily="@font/iran_yekan_regular"
                 android:textSize="30sp" />
     </RelativeLayout>
     <RelativeLayout
@@ -88,15 +88,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageView
+                android:id="@+id/user_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
-                android:src="@drawable/group" />
+                android:src="@drawable/add_usr" />
 
         <TextView
                 android:id="@+id/rec_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/user_icon"
                 android:gravity="center"
                 android:fontFamily="@font/iran_yekan_bold"
                 android:textSize="30sp" />
