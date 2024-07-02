@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.group.ExpenseListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:popupTheme="@style/ToolbarPopupTheme"
+            android:theme="@style/ToolbarTheme" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:paddingVertical="8dp">
+
+        <TextView
+                android:id="@+id/groupsTitleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/iran_yekan_bold"
+                android:gravity="center"
+                android:text="@string/expenses"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
+
+        <ImageView
+                android:id="@+id/addGroupImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignStart="@+id/groupsTitleTextView"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/group_icon"
+                android:src="@drawable/expenses" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/expensesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="128dp" />
+
+</RelativeLayout>

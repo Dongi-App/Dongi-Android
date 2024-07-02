@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.group.ExpenseEditActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:popupTheme="@style/ToolbarPopupTheme"
+            android:theme="@style/ToolbarTheme" />
+
+    <TextView
+            android:id="@+id/groupTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_yekan_bold"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="@string/expense_info"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+    <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:textDirection="rtl"
+                android:src="@drawable/add_receipt" />
+        <TextView
+                android:id="@+id/expense_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/iran_yekan_regular"
+                android:textDirection="rtl" />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/add_amount" />
+
+        <TextView
+                android:id="@+id/expense_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/iran_yekan_regular"
+                android:textDirection="rtl" />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/add_date" />
+
+        <TextView
+                android:id="@+id/date_picker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/iran_yekan_bold"
+                android:textSize="30sp" />
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/group" />
+
+        <TextView
+                android:id="@+id/rec_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/iran_yekan_bold"
+                android:textSize="30sp" />
+    </RelativeLayout>
+
+    <Button
+            android:id="@+id/remove_button"
+            android:onClick="settleExpense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            style="@style/PrimaryButtonStyle"
+            android:text="@string/settle" />
+
+
+</LinearLayout>
