@@ -47,11 +47,6 @@ data class Group(
     val members: List<User>
 )
 
-data class ShareMembers(
-    val user: String,
-    val share: Number
-)
-
 data class GroupsResponse(
     val groups: List<Group>
 )
@@ -62,7 +57,8 @@ data class AddGroupRequest(
 
 data class Share (
     val user: String,
-    val share: String
+    val share: String,
+    val expense: String
 )
 
 data class AddExpenseRequest(
@@ -81,6 +77,21 @@ data class updateExpenseRequest(
     val amount: String,
     val date: String,
     val shares: List<Share>
+)
+
+data class Expense(
+    val id: String,
+    val group: String,
+    val payer: String,
+    val description: String,
+    val amount: Float,
+    val total_shares: Int,
+    val date: String,
+    val shares: List<Share>,
+)
+
+data class ExpenseData(
+    val expense: Expense
 )
 
 data class RemoveExpenseRequest(
@@ -127,8 +138,8 @@ interface ApiService {
     @GET("api/group/list")
     fun getGroups(): Call<GroupsResponse>
 
-    @GET("api/group/data/{id}")
-    fun getGroupDetails(@Path("id") id: String): Call<Group>
+    @GET("api/group/data")
+    fun getGroupDetails(@Query("id") id: String): Call<AddGroupResponse>
 
     @POST("api/group/add")
     fun addGroup(@Body request: AddGroupRequest): Call<AddGroupResponse>
@@ -136,8 +147,11 @@ interface ApiService {
     @POST("/api/expense/add")
     fun addExpense(@Body request: AddExpenseRequest): Call<Void>
 
+    @GET("api/expense/data")
+    fun getExpenseDetails(@Query("expense_id") expense_id: String): Call<ExpenseData>
+
     @POST("/api/expense/remove")
-    fun removeExpense(@Body request: RemoveExpenseRequest): Call<Void>
+    fun removeExpense(@Body expense_id: String): Call<Void>
 
     @POST("/api/expense/update")
     fun updateExpense(@Body request: updateExpenseRequest): Call<Void>

@@ -22,13 +22,6 @@ class GroupMembersAdapter(private val context: Context, private val users: List<
 
         override fun onClick(v: View?) {
             val position = adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                val user = users[position]
-                val intent = Intent(context, GroupDetailsActivity::class.java).apply {
-                    putExtra("USER_EMAIL", user.email)
-                }
-                context.startActivity(intent)
-            }
         }
     }
 

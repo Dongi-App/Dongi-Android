@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dongi.R
 import com.example.dongi.api.AddExpenseRequest
+import com.example.dongi.api.AddGroupResponse
 import com.example.dongi.api.Group
 import com.example.dongi.api.RetrofitClient
 import com.example.dongi.api.UserDataResponse
@@ -30,7 +31,7 @@ class GroupDetailsActivity : AppCompatActivity() {
 
     private lateinit var membersRecyclerView: RecyclerView
     private lateinit var groupMembersAdapter: GroupMembersAdapter
-    private lateinit var profileTitleTV: TextView
+    private lateinit var groupTitleTV: TextView
     private lateinit var addMemberLayout: RelativeLayout
     private lateinit var addExpLayout: RelativeLayout
     private lateinit var expListLayout: RelativeLayout
@@ -62,13 +63,15 @@ class GroupDetailsActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        profileTitleTV = findViewById(R.id.profileTitleTextView)
+        groupTitleTV = findViewById(R.id.groupTitleTextView)
         expListLayout = findViewById(R.id.exp_list)
         addMemberLayout = findViewById(R.id.add_member)
         addExpLayout = findViewById(R.id.add_exp)
 
         expListLayout.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java).apply {
+                putExtra("GROUP_ID", groupId)
+            }
             startActivity(intent)
         }
         addMemberLayout.setOnClickListener {
@@ -101,13 +104,13 @@ class GroupDetailsActivity : AppCompatActivity() {
 
     private fun fetchMembersData() {
 
-        RetrofitClient.getInstance(this).getGroupDetails(groupId).enqueue(object : Callback<Group> {
-            override fun onResponse(call: Call<Group>, response: Response<Group>) {
+        RetrofitClient.getInstance(this@GroupDetailsActivity).getGroupDetails(groupId).enqueue(object : Callback<AddGroupResponse> {
+            override fun onResponse(call: Call<AddGroupResponse>, response: Response<AddGroupResponse>) {
                 if (response.isSuccessful) {
                     val groupsResponse = response.body()
                     if (groupsResponse != null) {
-                        profileTitleTV.text = groupsResponse.name
-                        groupMembersAdapter = GroupMembersAdapter(this@GroupDetailsActivity, groupsResponse.members)
+                        groupTitleTV.text = groupsResponse.group.name
+                        groupMembersAdapter = GroupMembersAdapter(this@GroupDetailsActivity, groupsResponse.group.members)
                         membersRecyclerView.adapter = groupMembersAdapter
                     } else {
                         Toast.makeText(this@GroupDetailsActivity, "دریافت اطلاعات گروه‌ با مشکل مواجه شد", Toast.LENGTH_SHORT).show()
@@ -117,7 +120,7 @@ class GroupDetailsActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<Group>, t: Throwable) {
+            override fun onFailure(call: Call<AddGroupResponse>, t: Throwable) {
                 Log.e("API Error", "Error: ${t.message}")
                 Toast.makeText(this@GroupDetailsActivity, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
             }

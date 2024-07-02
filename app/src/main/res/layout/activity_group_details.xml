@@ -12,14 +12,13 @@
             android:theme="@style/ToolbarTheme" />
 
     <TextView
-            android:id="@+id/profileTitleTextView"
+            android:id="@+id/groupTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/toolbar"
             android:fontFamily="@font/iran_yekan_bold"
             android:gravity="center"
             android:paddingVertical="8dp"
-            android:text="--"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
 
@@ -28,7 +27,7 @@
             android:id="@+id/profileItemsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/profileTitleTextView"
+            android:layout_below="@id/groupTitleTextView"
             android:layout_margin="16dp"
             android:layoutDirection="rtl">
 

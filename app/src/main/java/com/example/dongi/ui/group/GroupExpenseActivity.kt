@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.example.dongi.R
 import com.example.dongi.api.AddExpenseRequest
+import com.example.dongi.api.AddGroupResponse
 import com.example.dongi.api.Group
 import com.example.dongi.api.RetrofitClient
 import com.example.dongi.api.Share
@@ -74,12 +75,12 @@ class GroupExpenseActivity : AppCompatActivity() {
         val groupInfo = RetrofitClient.getInstance(this).getGroupDetails(groupId)
 
 
-        groupInfo.enqueue(object : Callback<Group> {
-            override fun onResponse(call: Call<Group>, response: Response<Group>) {
+        groupInfo.enqueue(object : Callback<AddGroupResponse> {
+            override fun onResponse(call: Call<AddGroupResponse>, response: Response<AddGroupResponse>) {
                 if (response.isSuccessful) {
                     val groupData = response.body()
                     if (groupData != null) {
-                        val groupMembers = groupData.members
+                        val groupMembers = groupData.group.members
                         if (groupMembers.isNotEmpty()) {
                             val shareVal = 1.0/ groupMembers.size
                             val mutableList = members.toMutableList()
@@ -96,7 +97,7 @@ class GroupExpenseActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<Group>, t: Throwable) {
+            override fun onFailure(call: Call<AddGroupResponse>, t: Throwable) {
                 Toast.makeText(this@GroupExpenseActivity, "دریافت اطلاعات گروه با مشکل مواجه شده است.: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
