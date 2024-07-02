@@ -69,7 +69,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         addExpLayout = findViewById(R.id.add_exp)
 
         expListLayout.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java).apply {
+            val intent = Intent(this, ExpenseList::class.java).apply {
                 putExtra("GROUP_ID", groupId)
             }
             startActivity(intent)
