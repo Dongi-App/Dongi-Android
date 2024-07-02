@@ -48,7 +48,7 @@
                     android:layout_height="32dp"
                     android:layout_marginEnd="8dp"
                     android:contentDescription="@string/group_icon"
-                    android:src="@drawable/expenses" />
+                    android:src="@drawable/expense_list" />
 
             <TextView
                     android:id="@+id/expensesListTV"
@@ -75,7 +75,7 @@
                     android:layout_height="32dp"
                     android:layout_marginEnd="8dp"
                     android:contentDescription="@string/add_expense"
-                    android:src="@drawable/expenses" />
+                    android:src="@drawable/add_expense" />
 
             <TextView
                     android:id="@+id/expensesTextView"
@@ -102,7 +102,7 @@
                     android:layout_height="32dp"
                     android:layout_marginEnd="8dp"
                     android:contentDescription="@string/add_expense"
-                    android:src="@drawable/expenses" />
+                    android:src="@drawable/add_usr_gp" />
 
             <TextView
                     android:id="@+id/add_user_tv"
