@@ -1,9 +1,7 @@
 package com.example.dongi.ui.group
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,7 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.example.dongi.api.RetrofitClient
 
-class ExpenseList : AppCompatActivity() {
+class ExpenseListActivity : AppCompatActivity() {
 
     private lateinit var expensesRecyclerView: RecyclerView
     private lateinit var expensesAdapter: ExpenseAdapter
@@ -66,19 +64,19 @@ class ExpenseList : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val expensesResponse = response.body()
                     if (expensesResponse != null) {
-                        expensesAdapter = ExpenseAdapter(this@ExpenseList, expensesResponse.expenses)
+                        expensesAdapter = ExpenseAdapter(this@ExpenseListActivity, expensesResponse.expenses)
                         expensesRecyclerView.adapter = expensesAdapter
                     } else {
-                        Toast.makeText(this@ExpenseList, "دریافت گروه‌ها با مشکل مواجه شد", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ExpenseListActivity, "دریافت گروه‌ها با مشکل مواجه شد", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this@ExpenseList, "Failed to load expenses", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ExpenseListActivity, "Failed to load expenses", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ExpenseList>, t: Throwable) {
                 Log.e("API Error", "Error: ${t.message}")
-                Toast.makeText(this@ExpenseList, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ExpenseListActivity, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }

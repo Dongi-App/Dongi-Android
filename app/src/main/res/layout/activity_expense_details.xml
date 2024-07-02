@@ -7,7 +7,7 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="16dp"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".ui.group.GroupExpenseEdit">
+        tools:context=".ui.group.ExpenseEditActivity">
 
 
     <androidx.appcompat.widget.Toolbar

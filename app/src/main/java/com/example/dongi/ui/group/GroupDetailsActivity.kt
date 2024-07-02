@@ -14,15 +14,9 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dongi.R
-import com.example.dongi.api.AddExpenseRequest
 import com.example.dongi.api.AddGroupResponse
-import com.example.dongi.api.Group
 import com.example.dongi.api.RetrofitClient
-import com.example.dongi.api.UserDataResponse
 import com.example.dongi.ui.invite.SendInvitationActivity
-import com.example.dongi.ui.signup.SignUpActivity
-import com.example.dongi.ui.splash.WelcomeActivity
-import com.example.dongi.util.SharedPreferencesHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,7 +63,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         addExpLayout = findViewById(R.id.add_exp)
 
         expListLayout.setOnClickListener {
-            val intent = Intent(this, ExpenseList::class.java).apply {
+            val intent = Intent(this, ExpenseListActivity::class.java).apply {
                 putExtra("GROUP_ID", groupId)
             }
             startActivity(intent)
@@ -81,7 +75,7 @@ class GroupDetailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
         addExpLayout.setOnClickListener {
-            val intent = Intent(this, GroupExpenseActivity::class.java).apply {
+            val intent = Intent(this, ExpenseActivity::class.java).apply {
                 putExtra("GROUP_ID", groupId)
             }
             startActivity(intent)

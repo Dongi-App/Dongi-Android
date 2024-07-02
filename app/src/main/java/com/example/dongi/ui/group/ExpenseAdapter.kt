@@ -23,7 +23,7 @@ class ExpenseAdapter(private val context: Context, private val expenses: List<Ex
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 val expense = expenses[position]
-                val intent = Intent(context, GroupExpenseActivity::class.java).apply {
+                val intent = Intent(context, ExpenseEditActivity::class.java).apply {
                     putExtra("EXPENSE_ID", expense.id)
                     putExtra("GROUP_ID", expense.group)
                 }
