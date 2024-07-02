@@ -43,7 +43,7 @@ data class SignupResponse(
 data class Group(
     val id: String,
     val name: String,
-    val members: Array<User>
+    val members: List<User>
 )
 
 data class ShareMembers(
@@ -70,7 +70,7 @@ data class AddExpenseRequest(
     val description: String,
     val amount: String,
     val date: String,
-    val shares: Array<Share>
+    val shares: List<Share>
 )
 
 data class updateExpenseRequest(
@@ -79,7 +79,7 @@ data class updateExpenseRequest(
     val description: String,
     val amount: String,
     val date: String,
-    val shares: Array<Share>
+    val shares: List<Share>
 )
 
 data class RemoveExpenseRequest(

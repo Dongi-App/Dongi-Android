@@ -1,89 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:context=".ui.group.GroupDetailsActivity">
 
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:popupTheme="@style/ToolbarPopupTheme"
+            android:theme="@style/ToolbarTheme" />
+
     <TextView
-            android:layout_marginBottom="100dp"
+            android:id="@+id/profileTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/add_expense"
+            android:layout_below="@id/toolbar"
             android:fontFamily="@font/iran_yekan_bold"
-            android:textSize="30sp" />
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:text="--"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
 
     <RelativeLayout
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:textDirection="rtl"
-                android:src="@drawable/add_receipt" />
-        <EditText
-                android:id="@+id/expense_reason"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/iran_yekan_regular"
-                android:hint="@string/expense_reason"
-                android:inputType="text"
-                android:textDirection="rtl" />
-    </RelativeLayout>
-    <RelativeLayout
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/add_amount" />
-
-        <EditText
-                android:id="@+id/expense_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/iran_yekan_regular"
-                android:hint="@string/price_spent"
-                android:inputType="number"
-                android:textDirection="rtl" />
-    </RelativeLayout>
-    <RelativeLayout
-            android:onClick="pick_date"
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/add_date" />
-
-        <TextView
-                android:id="@+id/date_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/blank"
-                android:fontFamily="@font/iran_yekan_bold"
-                android:textSize="30sp" />
-    </RelativeLayout>
-
-    <Button
-            android:id="@+id/save_button"
+            android:id="@+id/profileItemsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="@string/save" />
+            android:layout_below="@id/profileTitleTextView"
+            android:layout_margin="16dp"
+            android:layoutDirection="rtl">
 
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/secondaryButtonColor" />
 
-</LinearLayout>
+        <RelativeLayout
+                android:id="@+id/exp_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="16dp">
+
+            <ImageView
+                    android:id="@+id/exp_list_icon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/group_icon"
+                    android:src="@drawable/expenses" />
+
+            <TextView
+                    android:id="@+id/expensesListTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/exp_list_icon"
+                    android:fontFamily="@font/iran_yekan_regular"
+                    android:text="@string/expenses"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/add_exp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/exp_list"
+                android:paddingVertical="16dp">
+
+            <ImageView
+                    android:id="@+id/logoutImageView"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/add_expense"
+                    android:src="@drawable/expenses" />
+
+            <TextView
+                    android:id="@+id/expensesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/logoutImageView"
+                    android:fontFamily="@font/iran_yekan_regular"
+                    android:text="@string/add_expense"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/add_member"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_exp"
+                android:paddingVertical="16dp">
+
+            <ImageView
+                    android:id="@+id/add_user"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/add_expense"
+                    android:src="@drawable/expenses" />
+
+            <TextView
+                    android:id="@+id/add_user_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/add_user"
+                    android:fontFamily="@font/iran_yekan_regular"
+                    android:text="@string/add_user"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/groupsMembersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_below="@id/add_member"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
