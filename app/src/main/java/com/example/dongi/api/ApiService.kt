@@ -81,4 +81,7 @@ interface ApiService {
 
     @POST("api/group/add")
     fun addGroup(@Body request: AddGroupRequest): Call<AddGroupResponse>
+
+    @POST("api/invitation/send")
+    fun sendInvitation(@Body request: Map<String, String>): Call<Void>
 }

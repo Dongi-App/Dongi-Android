@@ -22,4 +22,7 @@
     <string name="enter_new_first_name">"نام جدید را وارد کنید "</string>
     <string name="enter_new_last_name">نام‌خانوادگی حدید را وارد کنید</string>
     <string name="register_changes">ثبت تغییرات</string>
+    <string name="send_invitation">ارسال دعوت</string>
+    <string name="enter_member_email">ایمیل دوست خود را وارد کنید</string>
+    <string name="invite_friends">دعوت دوستان</string>
 </resources>
