@@ -71,8 +71,7 @@ data class AddExpenseRequest(
     val payer: String,
     val description: String,
     val amount: String,
-    val date: String,
-    val shares: List<Share>
+    val date: String
 )
 
 data class updateExpenseRequest(
