@@ -13,7 +13,7 @@ import com.example.dongi.api.Expense
 class ExpenseAdapter(private val context: Context, private val expenses: List<Expense>) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
     inner class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val expenseNameTextView: TextView = itemView.findViewById(R.id.groupNameTextView)
+        val expenseInfoTextView: TextView = itemView.findViewById(R.id.expenseInfoTextView)
 
         init {
             itemView.setOnClickListener(this)
@@ -33,13 +33,13 @@ class ExpenseAdapter(private val context: Context, private val expenses: List<Ex
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_group, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_expense, parent, false)
         return ExpenseViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
         val expense = expenses[position]
-        holder.expenseNameTextView.text = "${expense.description} ${expense.date}"
+        holder.expenseInfoTextView.text = "${expense.description} (${expense.date})"
     }
 
     override fun getItemCount(): Int {

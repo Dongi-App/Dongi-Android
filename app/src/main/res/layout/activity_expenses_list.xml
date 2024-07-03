@@ -36,7 +36,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/group_icon"
-                android:src="@drawable/expenses" />
+                android:src="@drawable/expense_list" />
 
     </RelativeLayout>
 

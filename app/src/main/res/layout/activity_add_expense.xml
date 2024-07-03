@@ -1,102 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="16dp"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".ui.group.ExpenseActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp"
+    tools:context=".ui.group.ExpenseActivity">
 
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:popupTheme="@style/ToolbarPopupTheme"
-            android:theme="@style/ToolbarTheme" />
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:popupTheme="@style/ToolbarPopupTheme"
+        android:theme="@style/ToolbarTheme" />
 
     <TextView
-            android:id="@+id/profileTitleTextView"
+        android:id="@+id/profileTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/iran_yekan_bold"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="@string/add_expense"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/expense_reason"
+            android:src="@drawable/add_receipt"
+            android:textDirection="rtl" />
+
+        <EditText
+            android:id="@+id/expense_reason"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/iran_yekan_bold"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="@string/add_expense"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+            android:layout_marginTop="24dp"
+            android:autofillHints="expense_reason"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:textSize="14sp"
+            android:hint="@string/expense_reason"
+            android:inputType="text"
+            android:textDirection="rtl" />
+    </RelativeLayout>
 
     <RelativeLayout
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
         <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:textDirection="rtl"
-                android:src="@drawable/add_receipt" />
-        <EditText
-                android:id="@+id/expense_reason"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/iran_yekan_regular"
-                android:hint="@string/expense_reason"
-                android:inputType="text"
-                android:textDirection="rtl" />
-    </RelativeLayout>
-    <RelativeLayout
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <ImageView
-                android:layout_marginTop="10dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/add_amount" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/price_spent"
+            android:src="@drawable/add_amount" />
 
         <EditText
-                android:id="@+id/expense_amount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/iran_yekan_regular"
-                android:hint="@string/price_spent"
-                android:inputType="number"
-                android:textDirection="rtl" />
-    </RelativeLayout>
-    <RelativeLayout
-            android:onClick="pickDate"
-            android:layout_marginTop="50dp"
+            android:id="@+id/expense_amount"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:autofillHints="price_spent"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:hint="@string/price_spent"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:textDirection="rtl" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="pickDate">
+
         <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:src="@drawable/add_date" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/dateEmpty"
+            android:src="@drawable/add_date" />
 
         <TextView
-                android:id="@+id/date_picker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/blank"
-                android:fontFamily="@font/iran_yekan_regular"
-                android:textSize="30sp" />
+            android:id="@+id/date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_yekan_regular"
+            android:gravity="center"
+            android:text="@string/dateEmpty"
+            android:textSize="30sp" />
     </RelativeLayout>
 
     <Button
-            android:id="@+id/save_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            style="@style/SecondaryButtonStyle"
-            android:text="@string/save" />
+        android:id="@+id/save_button"
+        style="@style/PrimaryButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/save" />
 
 
 </LinearLayout>

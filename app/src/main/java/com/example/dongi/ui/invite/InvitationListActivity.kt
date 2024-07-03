@@ -63,12 +63,12 @@ class InvitationListActivity : AppCompatActivity() {
                     invitationAdapter = InvitationAdapter(invitations, ::acceptInvitation, ::declineInvitation)
                     invitationsRecyclerView.adapter = invitationAdapter
                 } else {
-                    Toast.makeText(this@InvitationListActivity, "Failed to load invitations", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@InvitationListActivity, "دریافت دعوت‌‌ها با خطا مواجه شد", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<InvitationListResponse>, t: Throwable) {
-                Toast.makeText(this@InvitationListActivity, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@InvitationListActivity, "مشکلی در ارتباط با سرور پیش آمد: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -88,15 +88,14 @@ class InvitationListActivity : AppCompatActivity() {
         call.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@InvitationListActivity, "Response recorded", Toast.LENGTH_SHORT).show()
                     fetchInvitations() // Refresh the list
                 } else {
-                    Toast.makeText(this@InvitationListActivity, "Failed to respond to invitation", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@InvitationListActivity, "دعوت‌نامه با خطا مواجه شد", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(this@InvitationListActivity, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@InvitationListActivity, "مشکلی در ارتباط با سرور پیش آمد: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
     }
