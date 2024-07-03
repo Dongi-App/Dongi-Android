@@ -127,6 +127,10 @@ data class InvitationResponseRequest(
     val admit: Boolean
 )
 
+data class LeaveGroupRequest(
+    val id: String
+)
+
 
 interface ApiService {
     @POST("api/user/login")
@@ -143,6 +147,9 @@ interface ApiService {
 
     @POST("api/user/update")
     fun updateUserData(@Body request: Map<String, String>): Call<Void>
+
+    @POST("api/group/leave")
+    fun leaveGroup(@Body request: LeaveGroupRequest): Call<Void>
 
     @GET("api/group/list")
     fun getGroups(): Call<GroupsResponse>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dongi.R
 import com.example.dongi.api.AddGroupResponse
+import com.example.dongi.api.LeaveGroupRequest
 import com.example.dongi.api.RetrofitClient
 import com.example.dongi.ui.invite.SendInvitationActivity
 import retrofit2.Call
@@ -27,6 +28,7 @@ class GroupDetailsActivity : AppCompatActivity() {
     private lateinit var groupMembersAdapter: GroupMembersAdapter
     private lateinit var groupTitleTV: TextView
     private lateinit var addMemberLayout: RelativeLayout
+    private lateinit var leaveGroupLayout: RelativeLayout
     private lateinit var addExpLayout: RelativeLayout
     private lateinit var expListLayout: RelativeLayout
     private lateinit var groupId: String
@@ -60,6 +62,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         groupTitleTV = findViewById(R.id.groupTitleTextView)
         expListLayout = findViewById(R.id.exp_list)
         addMemberLayout = findViewById(R.id.add_member)
+        leaveGroupLayout = findViewById(R.id.leave_group)
         addExpLayout = findViewById(R.id.add_exp)
 
         expListLayout.setOnClickListener {
@@ -73,6 +76,9 @@ class GroupDetailsActivity : AppCompatActivity() {
                 putExtra("GROUP_ID", groupId)
             }
             startActivity(intent)
+        }
+        leaveGroupLayout.setOnClickListener {
+            groupLeave()
         }
         addExpLayout.setOnClickListener {
             val intent = Intent(this, ExpenseActivity::class.java).apply {
@@ -94,6 +100,23 @@ class GroupDetailsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         fetchMembersData()
+    }
+
+    private fun groupLeave() {
+        RetrofitClient.getInstance(this@GroupDetailsActivity).leaveGroup(LeaveGroupRequest(groupId)).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    finish()
+                } else {
+                    Toast.makeText(this@GroupDetailsActivity, "Failed to leave group ", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Log.e("API Error", "Error: ${t.message}")
+                Toast.makeText(this@GroupDetailsActivity, "An error occurred: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun fetchMembersData() {

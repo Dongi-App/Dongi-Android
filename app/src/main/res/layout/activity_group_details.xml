@@ -116,11 +116,38 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+                android:id="@+id/leave_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_member"
+                android:paddingVertical="16dp">
+
+            <ImageView
+                    android:id="@+id/leave_user"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/leave_group"
+                    android:src="@drawable/logout" />
+
+            <TextView
+                    android:id="@+id/leave_user_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/leave_user"
+                    android:fontFamily="@font/iran_yekan_regular"
+                    android:text="@string/leave_group"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/membersTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/add_member"
+            android:layout_below="@+id/leave_group"
             android:text="@string/members"
             android:fontFamily="@font/iran_yekan_bold"
             android:textSize="14sp"
