@@ -58,7 +58,7 @@
                     android:fontFamily="@font/iran_yekan_regular"
                     android:text="@string/expenses"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
         </RelativeLayout>
 
@@ -85,7 +85,7 @@
                     android:fontFamily="@font/iran_yekan_regular"
                     android:text="@string/add_expense"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
         </RelativeLayout>
 
@@ -112,17 +112,27 @@
                     android:fontFamily="@font/iran_yekan_regular"
                     android:text="@string/add_user"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/membersTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_member"
+            android:text="@string/members"
+            android:fontFamily="@font/iran_yekan_bold"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/groupsMembersRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_below="@id/add_member"
+                android:layout_below="@id/membersTitleTextView"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp" />
+                android:layout_marginTop="8dp" />
 
     </RelativeLayout>
 

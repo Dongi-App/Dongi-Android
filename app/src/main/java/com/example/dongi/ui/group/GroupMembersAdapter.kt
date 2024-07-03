@@ -1,7 +1,6 @@
 package com.example.dongi.ui.group
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ class GroupMembersAdapter(private val context: Context, private val users: List<
 
     inner class MembersViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
-        val groupNameTextView: TextView = itemView.findViewById(R.id.groupNameTextView)
+        val memberNameTextView: TextView = itemView.findViewById(R.id.memberNameTextView)
 
         init {
             itemView.setOnClickListener(this)
@@ -27,13 +26,13 @@ class GroupMembersAdapter(private val context: Context, private val users: List<
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MembersViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_group, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_member, parent, false)
         return MembersViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MembersViewHolder, position: Int) {
         val user = users[position]
-        holder.groupNameTextView.text = "${user.first_name} ${user.last_name}"
+        holder.memberNameTextView.text = "${user.first_name} ${user.last_name}"
     }
 
     override fun getItemCount(): Int {
